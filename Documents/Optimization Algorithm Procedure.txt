@@ -1,0 +1,87 @@
+Dragonfly Algorithm 
+	#https://www.hindawi.com/journals/cin/2019/9293617/
+	#https://link.springer.com/article/10.1007%2Fs00521-015-1920-1
+
+	Intro :
+		separation weight (s) (How distance is the dragonfly from other dragonflys), 
+		alignment weight (a) (average velocity direction of all other dragonflys), 
+		cohesion weight (c) (distance between average dragonfly and itself), 
+		food factor (f) (distance from best dragonfly and itself), 
+		enemy factor (e) (distance between worst dragonfly and itself), and 
+		inertia weight (weightage to take account of previous pace or velocity)
+
+	Procedure: 
+		Calculate the objective values of all dragonflies
+		Update the food source and enemy
+		Update w, s, a, c, f, and e
+		Calculate S, A, C, F, and E using equations (1)–(5)
+		Update neighbouring radius
+		If a dragonfly has at least one neighbouring dragonfly
+			Update velocity vector 
+			Update position vector 
+
+	Pros:
+		selecting the predators, prevents the artificial dragonflies from searching around nonpromising areas.
+
+	Cons: 
+		not have an internal memory  to premature convergence to the local optimum
+		stuck into local optima due to high exploitation rate.
+		Levy flight are overflowing of the search area and interruption of random flights due to its big searching steps.
+
+
+Salp Swarm Algorithm 
+	#https://www.sciencedirect.com/science/article/abs/pii/S0965997816307736
+	#https://link.springer.com/chapter/10.1007%2F978-3-030-12127-3_11
+
+	Intro parameters : 
+		c1 (balances exploration and exploitation) (starts exploitation when it nears end iteration)
+		c2 and c3 (determines direction)
+
+	Procedure : 
+		Leader salp explores and exploits based on food source . Other sapls follow the leader . 
+		Newtons law of motion is used to follow other salp
+
+		Choose a source of food from repository: F=SelectFood(repository)
+		Update c1 
+		for each salp (xi)
+			if (i==1)
+				Update the position of the leading salp by Eq. (3.1)
+			else
+				Update the position of the follower salp by Eq. (3.4)
+			end
+
+	Pros:
+		saves the best solution obtained so far 
+		updates with respect to the food source only,
+		move gradually towards the leading salp.
+		stagnating in local optima.
+		Parameter c1 is decreased adaptively, first explores, then exploits it.
+
+	Cons:
+		not store multiple solutions as the best solutions 
+		updates the food source with the best solution obtained, but no single best solution for
+		multi-objective problems.
+
+
+
+Genetic Algorithm 
+	#https://towardsdatascience.com/introduction-to-genetic-algorithms-including-example-code-e396e98d8bf3
+	#https://ieeexplore.ieee.org/document/538609
+
+	Intro: 
+		Selection (select the fittest two individual)
+		Crossover (exchanging the genes of parents)
+		Mutation (some bits get flipped)
+
+	Procedure:
+		Selection
+	    Crossover
+	    Mutation
+	    Compute fitness
+
+	Pros: 
+		Faster 
+
+	Cons:
+		Random heuristics sometimes doesn’t find the optimum
+		get stuck with a local optimum

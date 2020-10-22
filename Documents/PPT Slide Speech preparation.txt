@@ -1,0 +1,37 @@
+Formula Slide: 
+
+These are the formulas that we use in our algorithm
+
+Xi represents each point in the search area. 
+Let us assume that our search area is a wall. we know the temperature at each point in the wall.
+
+we reandomly take N points , those points are Xi
+i represent each point
+
+xi,t is current position of the point in the wall
+xi,t+1 is next position of that point in the wall
+To find the next position, we use pace formula
+
+To calculate pace, we use fitness weight, in this x* represents the point with best fitness. x represents the point which we are going to move. 
+
+wf is weight factor. it can be either 0 or 1 . When it is 1, high level
+of convergence and a low chance of coverage occurs. 
+otherwise, it dosen't affect the algorithm
+
+When we have a point which is also having best fitness currently, or when the point has a fitness value of 0 , we find pace by randomly generating a number from -1 to 1 and multiplying it with that point . 
+
+Else, we find pace by multiplying the distance between the best point and current point with fitness weight
+
+
+FLow Chart Slide : 
+
+We first select N random points 
+We find the best point among them using fitness function
+we find pace and fitness weight for a point in X , if the fitness value is greater than previous fitness, we update that point
+Else we find pace using last pace in which we moved that point, again we find fitness value, if it is greater that previous fitness, we move the point
+
+else we go for a random walk.
+
+We do the above process repeatedly for M iterations. Or untill no other point is moved further. 
+
+when completed , we will be having N updated points , from which , The best fitness point is the optimal solution.
